@@ -83,7 +83,6 @@ public class ConnectionPool {
             try {
 				Thread.sleep(60000 * 1);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				logger.log(Level.SEVERE, e.getMessage());
 			} 
         };
@@ -218,7 +217,6 @@ public class ConnectionPool {
     
     @Override
     protected void finalize() throws Throwable {
-    	// TODO Auto-generated method stub
     	super.finalize();
     	shutDownConnectionPool();
     }
