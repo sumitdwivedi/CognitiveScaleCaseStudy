@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author sumdwive
  * ObjectPool pattern implementation
  * I wrote this class , just to implement basic connection pool behavior.
- * for real time usage hikari connection pool is currently best performing 
+ * for real time usage hikari connection pool is currently best performing jdbc connection pool librrary
  */
 public class ConnectionPool {
 

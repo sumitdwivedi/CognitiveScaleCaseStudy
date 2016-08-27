@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 /**
  * @author sumdwive
- * To create connection pool object using property file or input as method argument
+ * Factroy class To create connection pool object using property file or input as method argument
  * I did not use spring for reading properties file so that connection pool code can be generic to all java applications
  *
  */
