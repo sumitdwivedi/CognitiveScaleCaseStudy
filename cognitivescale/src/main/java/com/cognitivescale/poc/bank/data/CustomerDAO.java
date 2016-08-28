@@ -11,7 +11,7 @@ import com.cognitivescale.poc.bank.business.to.CustomerTO;
 public interface CustomerDAO {
 	
 	public long createCustomer(CustomerTO customer);
-    public CustomerTO updateCustomer(CustomerTO employee);
+    public CustomerTO updateCustomer(CustomerTO customer);
     public void deleteCustomer(long id);
     public List<CustomerTO> getAllCustomers();
     public CustomerTO getCustomer(long id);   

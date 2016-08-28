@@ -31,6 +31,38 @@ public class Customer extends RDBBase{
 	@Column(name = "contact_number")
 	int contactNumber;
 	
+public Customer(){}
+	
+	public Customer(long id, String customerID, String firstName, String lastName, int age, String address,
+			String country, String email, String sex, int contactNumber) {
+		super();
+		this.id = id;
+		this.customerID = customerID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.address = address;
+		this.country = country;
+		this.email = email;
+		this.sex = sex;
+		this.contactNumber = contactNumber;
+	}
+	
+	public Customer(String customerID, String firstName, String lastName, int age, String address,
+			String country, String email, String sex, int contactNumber) {
+		super();
+		this.customerID = customerID;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.address = address;
+		this.country = country;
+		this.email = email;
+		this.sex = sex;
+		this.contactNumber = contactNumber;
+	}
+
+	
 	public String getCustomerID() {
 		return customerID;
 	}

@@ -2,11 +2,18 @@ package com.cognitivescale.poc.bank.data.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.cognitivescale.poc.bank.business.to.CustomerTO;
 import com.cognitivescale.poc.bank.data.CustomerDAO;
+import com.cognitivescale.poc.bank.data.rdb.Customer;
+import com.cognitivescale.poc.bank.data.util.HibernateUtil;
 
 public class CustomerDAOImpl implements CustomerDAO {
 
+	@Autowired
+    private HibernateUtil hibernateUtil;
+	
 	@Override
 	public long createCustomer(CustomerTO customer) {
 		// TODO Auto-generated method stub
@@ -14,14 +21,17 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public CustomerTO updateCustomer(CustomerTO employee) {
-		// TODO Auto-generated method stub
-		return null;
+	public CustomerTO updateCustomer(CustomerTO customerTO) {
+		Customer customer = new Customer(customerTO.getCustomerID(), customerTO.getFirstName(), customerTO.getLastName(), customerTO.getAge(), customerTO.getAddress(), customerTO.getCountry(), 
+				customerTO.getEmail(), customerTO.getSex(), customerTO.getContactNumber());
+		hibernateUtil.create(customer);
+		customerTO.setId(customer.getId());
+		return customerTO;
 	}
 
 	@Override
 	public void deleteCustomer(long id) {
-		// TODO Auto-generated method stub
+		hibernateUtil.delete(id, Customer.class);
 
 	}
 
@@ -33,8 +43,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public CustomerTO getCustomer(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Customer customer = hibernateUtil.fetchById(id, Customer.class);
+		CustomerTO CustomerTO = new CustomerTO(customer.getId(), customer.getCustomerID(), customer.getFirstName(), customer.getLastName(), customer.getAge(), customer.getAddress(), 
+				customer.getCountry(), customer.getEmail(), customer.getSex(), customer.getContactNumber());
+		return CustomerTO;
 	}
 
 	@Override
