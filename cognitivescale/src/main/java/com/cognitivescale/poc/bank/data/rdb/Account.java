@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -16,7 +18,7 @@ public class Account extends RDBBase{
 	
 	@Column(name = "account_num")
 	String accountNum;
-	@Column(name = "customer_ids")
+	@Column(name = "customer_id")
 	String customerID;
 	@Column(name = "balance")
 	double balance;
@@ -24,6 +26,10 @@ public class Account extends RDBBase{
 	String accType;
 	@Column(name = "account_open_date")
 	Date accountOpenDate;
+	
+	@ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
+    private Customer customer;
 	
 	public Account(){}
 	
@@ -77,6 +83,14 @@ public class Account extends RDBBase{
 	}
 	public void setAccountOpenDate(Date accountOpenDate) {
 		this.accountOpenDate = accountOpenDate;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	
 	

@@ -1,7 +1,12 @@
 package com.cognitivescale.poc.bank.data.rdb;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,6 +35,10 @@ public class Customer extends RDBBase{
 	String sex;
 	@Column(name = "contact_number")
 	int contactNumber;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer",
+            targetEntity = Account.class)
+ private Set<Account> accounts = new HashSet<Account>(0);
 	
 public Customer(){}
 	
@@ -116,5 +125,13 @@ public Customer(){}
 	}
 	public void setContactNumber(int contactNumber) {
 		this.contactNumber = contactNumber;
+	}
+
+	public Set<Account> getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(Set<Account> accounts) {
+		this.accounts = accounts;
 	}
 }
