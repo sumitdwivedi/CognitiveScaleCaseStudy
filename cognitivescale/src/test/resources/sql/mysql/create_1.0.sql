@@ -20,12 +20,17 @@ CREATE TABLE customer(
 customer_id VARCHAR( 200 ) ,
 first_name VARCHAR( 200 ) ,
 last_name VARCHAR( 200 ) ,
-age VARCHAR( 3 ) ,
+age int ,
 address VARCHAR( 200 ) ,
 country VARCHAR( 15 ) ,
 email VARCHAR( 200 ) ,
 sex VARCHAR( 15 ) ,
-contact_number VARCHAR( 200 ) ,
+contact_number int,
+created_userid VARCHAR( 200 ),
+modified_userid VARCHAR( 200 ),
+created_timestamp TIMESTAMP ,
+modified_timestamp TIMESTAMP
+
 );
 
 --
@@ -39,7 +44,11 @@ customer_id VARCHAR( 200 ) ,
 account_num VARCHAR( 200 ) ,
 balance FLOAT,
 acc_type VARCHAR( 200 ) ,
-opendate DATE
+account_open_date DATE,
+created_userid VARCHAR( 200 ),
+modified_userid VARCHAR( 200 ),
+created_timestamp TIMESTAMP ,
+modified_timestamp TIMESTAMP
 );
 --
 -- Table structure for table `login`
@@ -52,7 +61,11 @@ user_name varchar(200) ,
 user_password varchar(200) ,
 user_type varchar(200) ,
 question varchar(200) ,
-ans varchar(200) 
+ans varchar(200),
+created_userid VARCHAR( 200 ),
+modified_userid VARCHAR( 200 ),
+created_timestamp TIMESTAMP ,
+modified_timestamp TIMESTAMP 
 );
 
 DROP TABLE IF EXISTS `transactions`;
@@ -67,7 +80,11 @@ account_num varchar(200) ,
 amount varchar(200) ,
 current_balance varchar(200) ,
 remarks timestamp ,
-customer_id varchar(200)
+customer_id varchar(200),
+created_userid VARCHAR( 200 ),
+modified_userid VARCHAR( 200 ),
+created_timestamp TIMESTAMP ,
+modified_timestamp TIMESTAMP
 );
 
 --
@@ -81,7 +98,11 @@ account_num varchar(200) ,
 ifcs_code varchar(200) ,
 nick_name varchar(200) ,
 customer_id varchar(200) ,
-account_name varchar(200) 
+account_name varchar(200),
+created_userid VARCHAR( 200 ),
+modified_userid VARCHAR( 200 ),
+created_timestamp TIMESTAMP ,
+modified_timestamp TIMESTAMP 
 );
 
 

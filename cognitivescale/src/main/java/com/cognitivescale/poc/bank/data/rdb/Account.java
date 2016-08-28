@@ -1,5 +1,6 @@
 package com.cognitivescale.poc.bank.data.rdb;
 
-public class Account {
+public class Account extends RDBBase{
 
+	
 }
