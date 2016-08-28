@@ -2,15 +2,22 @@ package com.cognitivescale.poc.bank.data.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.cognitivescale.poc.bank.data.AccountDAO;
 import com.cognitivescale.poc.bank.data.rdb.Account;
+import com.cognitivescale.poc.bank.data.util.HibernateUtil;
 
+@Repository
 public class AccountDAOImpl implements AccountDAO {
+	
+	@Autowired
+    private HibernateUtil hibernateUtil;
 
 	@Override
 	public long createAccount(Account account) {
-		// TODO Auto-generated method stub
-		return 0;
+		return (Long) hibernateUtil.create(account);
 	}
 
 	@Override

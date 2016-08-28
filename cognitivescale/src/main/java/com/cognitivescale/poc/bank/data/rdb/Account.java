@@ -25,6 +25,29 @@ public class Account extends RDBBase{
 	@Column(name = "account_open_date")
 	Date accountOpenDate;
 	
+	public Account(){}
+	
+	public Account(long id, String accountNum, String customerID, double balance, String accType,
+			Date accountOpenDate) {
+		super();
+		this.id = id;
+		this.accountNum = accountNum;
+		this.customerID = customerID;
+		this.balance = balance;
+		this.accType = accType;
+		this.accountOpenDate = accountOpenDate;
+	}
+	
+	public Account(String accountNum, String customerID, double balance, String accType,
+			Date accountOpenDate) {
+		super();
+		this.accountNum = accountNum;
+		this.customerID = customerID;
+		this.balance = balance;
+		this.accType = accType;
+		this.accountOpenDate = accountOpenDate;
+	}
+	
 	public String getAccountNum() {
 		return accountNum;
 	}

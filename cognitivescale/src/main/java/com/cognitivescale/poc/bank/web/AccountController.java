@@ -2,6 +2,11 @@ package com.cognitivescale.poc.bank.web;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.cognitivescale.poc.bank.business.AccountService;
+import com.cognitivescale.poc.bank.business.to.AccountTO;
 import com.cognitivescale.poc.bank.web.dto.AccountDTO;
 
 
@@ -10,10 +15,15 @@ import com.cognitivescale.poc.bank.web.dto.AccountDTO;
  * @author sumdwive
  *
  */
+@Controller
 public class AccountController {
 	
-	public long createAccount(AccountDTO account) {
-		return 0;
+	@Autowired
+    private AccountService accountService;
+	
+	public long createAccount(AccountDTO accountDTO) {
+		AccountTO accountTO = new AccountTO(accountDTO.getAccountNum(), accountDTO.getCustomerID(), accountDTO.getBalance(), accountDTO.getAccType(), accountDTO.getAccountOpenDate());
+		return accountService.createAccount(accountTO);
 	}
     public AccountDTO updateAccount(AccountDTO account) {
 		return null;
