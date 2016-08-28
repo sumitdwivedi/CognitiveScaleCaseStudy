@@ -23,14 +23,15 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public AccountTO updateAccount(AccountTO account) {
-		// TODO Auto-generated method stub
-		return null;
+	public AccountTO updateAccount(AccountTO accountTO) {
+		Account account = new Account(accountTO.getId(),accountTO.getAccountNum(), accountTO.getCustomerID(), accountTO.getBalance(), accountTO.getAccType(), accountTO.getAccountOpenDate());
+		hibernateUtil.update(account);
+		return accountTO;
 	}
 
 	@Override
 	public void deleteAccount(long id) {
-		// TODO Auto-generated method stub
+		hibernateUtil.delete(id, Account.class);
 		
 	}
 
@@ -43,7 +44,9 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public AccountTO getAccount(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		Account account = hibernateUtil.fetchById(id, Account.class);
+		AccountTO accountTO = new AccountTO(account.getId(), account.getAccountNum(), account.getCustomerID(), account.getBalance(), account.getAccType(), account.getAccountOpenDate());
+		return accountTO;
 	}
 
 	@Override

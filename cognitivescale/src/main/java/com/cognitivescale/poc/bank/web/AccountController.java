@@ -22,19 +22,36 @@ public class AccountController {
     private AccountService accountService;
 	
 	public long createAccount(AccountDTO accountDTO) {
-		AccountTO accountTO = new AccountTO(accountDTO.getAccountNum(), accountDTO.getCustomerID(), accountDTO.getBalance(), accountDTO.getAccType(), accountDTO.getAccountOpenDate());
+		AccountTO accountTO = createAccountTO(accountDTO);
 		return accountService.createAccount(accountTO);
 	}
-    public AccountDTO updateAccount(AccountDTO account) {
-		return null;
+	
+	private AccountTO createAccountTO(AccountDTO accountDTO) {
+		AccountTO accountTO = new AccountTO(accountDTO.getAccountNum(), accountDTO.getCustomerID(), accountDTO.getBalance(), accountDTO.getAccType(), accountDTO.getAccountOpenDate());
+		return accountTO;
 	}
+	
+    public AccountDTO updateAccount(AccountDTO accountDTO) {
+    	AccountTO account = createAccountTO(accountDTO);
+    	account.setId(accountDTO.getId());
+    	accountService.updateAccount(account);
+		return accountDTO;
+	}
+    
     public void deleteAccount(long id) {
+    	accountService.deleteAccount(id);
 	}
     public List<AccountDTO> getAllAccounts() {
 		return null;
 	}
     public AccountDTO getAccount(long id) {
-		return null;
+		AccountTO account = accountService.getAccount(id);
+		AccountDTO accountDTO = createAccountDTO(account);
+		return accountDTO;
+	}
+	private AccountDTO createAccountDTO(AccountTO account) {
+		AccountDTO accountDTO = new AccountDTO(account.getId(), account.getAccountNum(), account.getCustomerID(), account.getBalance(), account.getAccType(), account.getAccountOpenDate());
+		return accountDTO;
 	}   
     public List<AccountDTO> getAllAccounts(long customerID) {
 		return null;

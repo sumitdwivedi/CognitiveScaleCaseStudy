@@ -24,13 +24,12 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public AccountTO updateAccount(AccountTO account) {
-		// TODO Auto-generated method stub
-		return null;
+		return accountDAO.updateAccount(account);
 	}
 
 	@Override
 	public void deleteAccount(long id) {
-		// TODO Auto-generated method stub
+		accountDAO.deleteAccount(id);
 
 	}
 
@@ -42,8 +41,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public AccountTO getAccount(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return accountDAO.getAccount(id);
 	}
 
 	@Override
