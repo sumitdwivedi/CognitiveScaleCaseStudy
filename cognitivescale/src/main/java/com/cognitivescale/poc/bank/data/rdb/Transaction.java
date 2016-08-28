@@ -36,6 +36,42 @@ public class Transaction extends RDBBase{
 	@Column(name = "customer_id")
 	String customerID;
 	
+public Transaction(){}
+	
+	public Transaction(long id, String transactionID, String transactionType, String transactionMethod,
+			String transactionDate, String chequeNum, String accountNum, Double amount, Double currentBalance,
+			String remarks, String customerID) {
+		super();
+		this.id = id;
+		this.transactionID = transactionID;
+		this.transactionType = transactionType;
+		this.transactionMethod = transactionMethod;
+		this.transactionDate = transactionDate;
+		this.chequeNum = chequeNum;
+		this.accountNum = accountNum;
+		this.amount = amount;
+		this.currentBalance = currentBalance;
+		this.remarks = remarks;
+		this.customerID = customerID;
+		
+	}
+		
+		public Transaction(String transactionID, String transactionType, String transactionMethod,
+				String transactionDate, String chequeNum, String accountNum, Double amount, Double currentBalance,
+				String remarks, String customerID) {
+			super();
+			this.transactionID = transactionID;
+			this.transactionType = transactionType;
+			this.transactionMethod = transactionMethod;
+			this.transactionDate = transactionDate;
+			this.chequeNum = chequeNum;
+			this.accountNum = accountNum;
+			this.amount = amount;
+			this.currentBalance = currentBalance;
+			this.remarks = remarks;
+			this.customerID = customerID;
+	}
+	
 	public String getTransactionID() {
 		return transactionID;
 	}

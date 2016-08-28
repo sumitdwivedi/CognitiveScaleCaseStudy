@@ -2,15 +2,25 @@ package com.cognitivescale.poc.bank.business.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.cognitivescale.poc.bank.business.TransactionSerivce;
 import com.cognitivescale.poc.bank.business.to.TransactionTO;
+import com.cognitivescale.poc.bank.data.TransactionDAO;
 
+@Service
+@Transactional
 public class TransactionSerivceImpl implements TransactionSerivce {
+	
+	@Autowired
+    private TransactionDAO TransactionDAO;
 
 	@Override
-	public long createTransaction(TransactionTO customer) {
+	public long createTransaction(TransactionTO transactionTO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return TransactionDAO.createTransaction(transactionTO);
 	}
 
 	@Override
@@ -22,7 +32,7 @@ public class TransactionSerivceImpl implements TransactionSerivce {
 	@Override
 	public TransactionTO getTransaction(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return TransactionDAO.getTransaction(id);
 	}
 
 	@Override
