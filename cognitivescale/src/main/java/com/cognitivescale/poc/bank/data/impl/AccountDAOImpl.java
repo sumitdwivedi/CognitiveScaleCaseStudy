@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.cognitivescale.poc.bank.business.to.AccountTO;
 import com.cognitivescale.poc.bank.data.AccountDAO;
 import com.cognitivescale.poc.bank.data.rdb.Account;
 import com.cognitivescale.poc.bank.data.util.HibernateUtil;
@@ -16,12 +17,13 @@ public class AccountDAOImpl implements AccountDAO {
     private HibernateUtil hibernateUtil;
 
 	@Override
-	public long createAccount(Account account) {
+	public long createAccount(AccountTO accountTO) {
+		Account account = new Account(accountTO.getAccountNum(), accountTO.getCustomerID(), accountTO.getBalance(), accountTO.getAccType(), accountTO.getAccountOpenDate());
 		return (Long) hibernateUtil.create(account);
 	}
 
 	@Override
-	public Account updateAccount(Account account) {
+	public AccountTO updateAccount(AccountTO account) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -29,25 +31,26 @@ public class AccountDAOImpl implements AccountDAO {
 	@Override
 	public void deleteAccount(long id) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public List<Account> getAllAccounts() {
+	public List<AccountTO> getAllAccounts() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Account getAccount(long id) {
+	public AccountTO getAccount(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Account> getAllAccounts(long customerID) {
+	public List<AccountTO> getAllAccounts(long customerID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

@@ -2,13 +2,14 @@ package com.cognitivescale.poc.bank.data.impl;
 
 import java.util.List;
 
+import com.cognitivescale.poc.bank.business.to.BeneficiaryTO;
 import com.cognitivescale.poc.bank.data.BeneficiaryDAO;
 import com.cognitivescale.poc.bank.data.rdb.Beneficiary;
 
 public class BeneficiaryDAOImpl implements BeneficiaryDAO {
 
 	@Override
-	public long addBeneficiary(Beneficiary beneficiar) {
+	public long addBeneficiary(BeneficiaryTO beneficiar) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -20,19 +21,19 @@ public class BeneficiaryDAOImpl implements BeneficiaryDAO {
 	}
 
 	@Override
-	public List<Beneficiary> getAllBeneficiaries() {
+	public List<BeneficiaryTO> getAllBeneficiaries() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Beneficiary getBeneficiary(long id) {
+	public BeneficiaryTO getBeneficiary(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Beneficiary> getAllBeneficiaries(long customerID) {
+	public List<BeneficiaryTO> getAllBeneficiaries(long customerID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

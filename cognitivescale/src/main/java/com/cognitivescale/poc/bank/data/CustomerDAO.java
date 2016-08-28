@@ -2,7 +2,7 @@ package com.cognitivescale.poc.bank.data;
 
 import java.util.List;
 
-import com.cognitivescale.poc.bank.data.rdb.Customer;
+import com.cognitivescale.poc.bank.business.to.CustomerTO;
 
 /**
  * @author sumdwive
@@ -10,10 +10,10 @@ import com.cognitivescale.poc.bank.data.rdb.Customer;
  */
 public interface CustomerDAO {
 	
-	public long createCustomer(Customer customer);
-    public Customer updateCustomer(Customer employee);
+	public long createCustomer(CustomerTO customer);
+    public CustomerTO updateCustomer(CustomerTO employee);
     public void deleteCustomer(long id);
-    public List<Customer> getAllCustomers();
-    public Customer getCustomer(long id);   
-    public List<Customer> getAllCustomers(String customerName);
+    public List<CustomerTO> getAllCustomers();
+    public CustomerTO getCustomer(long id);   
+    public List<CustomerTO> getAllCustomers(String customerName);
 }

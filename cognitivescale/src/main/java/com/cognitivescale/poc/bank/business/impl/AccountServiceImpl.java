@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cognitivescale.poc.bank.business.AccountService;
 import com.cognitivescale.poc.bank.business.to.AccountTO;
 import com.cognitivescale.poc.bank.data.AccountDAO;
-import com.cognitivescale.poc.bank.data.rdb.Account;
 
 @Service
 @Transactional
@@ -20,8 +19,7 @@ public class AccountServiceImpl implements AccountService {
 	
 	@Override
 	public long createAccount(AccountTO accountTO) {
-		Account account = new Account(accountTO.getAccountNum(), accountTO.getCustomerID(), accountTO.getBalance(), accountTO.getAccType(), accountTO.getAccountOpenDate());
-		return accountDAO.createAccount(account);
+		return accountDAO.createAccount(accountTO);
 	}
 
 	@Override

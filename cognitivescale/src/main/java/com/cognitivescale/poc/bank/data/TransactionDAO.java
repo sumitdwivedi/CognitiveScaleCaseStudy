@@ -2,7 +2,7 @@ package com.cognitivescale.poc.bank.data;
 
 import java.util.List;
 
-import com.cognitivescale.poc.bank.data.rdb.Transaction;
+import com.cognitivescale.poc.bank.business.to.TransactionTO;
 
 /**
  * @author sumdwive
@@ -10,8 +10,8 @@ import com.cognitivescale.poc.bank.data.rdb.Transaction;
  */
 public interface TransactionDAO {
 	
-	public long createTransaction(Transaction customer);
-    public List<Transaction> getAllTransactions();
-    public Transaction getTransaction(long id);   
-    public List<Transaction> getAllTransaction(String transactionName);
+	public long createTransaction(TransactionTO customer);
+    public List<TransactionTO> getAllTransactions();
+    public TransactionTO getTransaction(long id);   
+    public List<TransactionTO> getAllTransaction(String transactionName);
 }

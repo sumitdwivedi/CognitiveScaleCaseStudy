@@ -2,19 +2,19 @@ package com.cognitivescale.poc.bank.data.impl;
 
 import java.util.List;
 
+import com.cognitivescale.poc.bank.business.to.CustomerTO;
 import com.cognitivescale.poc.bank.data.CustomerDAO;
-import com.cognitivescale.poc.bank.data.rdb.Customer;
 
 public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
-	public long createCustomer(Customer customer) {
+	public long createCustomer(CustomerTO customer) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public Customer updateCustomer(Customer employee) {
+	public CustomerTO updateCustomer(CustomerTO employee) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -26,19 +26,19 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public List<Customer> getAllCustomers() {
+	public List<CustomerTO> getAllCustomers() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Customer getCustomer(long id) {
+	public CustomerTO getCustomer(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Customer> getAllCustomers(String customerName) {
+	public List<CustomerTO> getAllCustomers(String customerName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
