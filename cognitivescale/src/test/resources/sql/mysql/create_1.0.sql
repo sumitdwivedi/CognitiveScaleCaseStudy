@@ -9,17 +9,6 @@
 
 CREATE DATABASE  IF NOT EXISTS `cognitivescale`;
 USE `cognitivescale`;
---
--- Table structure for table `accounts`
---
-
-DROP TABLE IF EXISTS `accounts`;
-CREATE TABLE accounts (
-`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-acc_type varchar(50) Yes,
-minbalance varchar(20) Yes
-
-);
 
 --
 -- Table structure for table `customer`
@@ -37,12 +26,21 @@ country VARCHAR( 15 ) ,
 email VARCHAR( 200 ) ,
 sex VARCHAR( 15 ) ,
 contact_number VARCHAR( 200 ) ,
-acc_number VARCHAR( 200 ) ,
+);
+
+--
+-- Table structure for table `account`
+--
+
+DROP TABLE IF EXISTS `account`;
+CREATE TABLE account(
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+customer_id VARCHAR( 200 ) ,
+account_num VARCHAR( 200 ) ,
 balance FLOAT,
 acc_type VARCHAR( 200 ) ,
 opendate DATE
 );
-
 --
 -- Table structure for table `login`
 --
