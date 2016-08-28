@@ -40,11 +40,15 @@ public class Customer extends RDBBase{
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer",
             targetEntity = Account.class)
- private Set<Account> accounts = new HashSet<Account>(0);
+ private List<Account> accounts = new ArrayList<Account>(0);
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer",
             targetEntity = Beneficiary.class)
- private List<Beneficiary> Beneficiary = new ArrayList<Beneficiary>(0);
+ private List<Beneficiary> beneficiaryList = new ArrayList<>(0);
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer",
+            targetEntity = Beneficiary.class)
+ private List<Transaction> transactionsList = new ArrayList<>(0);
 	
 public Customer(){}
 	
@@ -133,19 +137,27 @@ public Customer(){}
 		this.contactNumber = contactNumber;
 	}
 
-	public Set<Account> getAccounts() {
+	public List<Account> getAccounts() {
 		return accounts;
 	}
 
-	public void setAccounts(Set<Account> accounts) {
+	public void setAccounts(ArrayList accounts) {
 		this.accounts = accounts;
 	}
 
-	public List<Beneficiary> getBeneficiary() {
-		return Beneficiary;
+	public List<Beneficiary> getBeneficiaries() {
+		return beneficiaryList;
 	}
 
-	public void setBeneficiary(List<Beneficiary> beneficiary) {
-		Beneficiary = beneficiary;
+	public void setBeneficiaries(List<Beneficiary> beneficiary) {
+		beneficiaryList = beneficiary;
+	}
+
+	public List<Transaction> getTransactionsList() {
+		return transactionsList;
+	}
+
+	public void setTransactionsList(List<Transaction> transactionsList) {
+		this.transactionsList = transactionsList;
 	}
 }

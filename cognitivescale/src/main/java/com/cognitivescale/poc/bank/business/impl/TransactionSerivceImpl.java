@@ -36,7 +36,7 @@ public class TransactionSerivceImpl implements TransactionSerivce {
 	}
 
 	@Override
-	public List<TransactionTO> getAllTransaction(String transactionName) {
+	public List<TransactionTO> getAllTransaction(long customerPK) {
 		// TODO Auto-generated method stub
 		return null;
 	}

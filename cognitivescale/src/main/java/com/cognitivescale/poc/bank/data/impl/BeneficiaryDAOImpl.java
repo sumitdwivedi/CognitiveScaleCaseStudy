@@ -50,7 +50,7 @@ public class BeneficiaryDAOImpl implements BeneficiaryDAO {
 	@Override
 	public List<BeneficiaryTO> getAllBeneficiaries(long customerPK) {
 		Customer Customer = hibernateUtil.fetchById(customerPK, Customer.class);
-		List<Beneficiary> beneficiaryList = Customer.getBeneficiary();
+		List<Beneficiary> beneficiaryList = Customer.getBeneficiaries();
 		List<BeneficiaryTO> beneficiaryTOList = new ArrayList<>();
 		for(Beneficiary  beneficiary : beneficiaryList){
 			BeneficiaryTO BeneficiaryTO = getBeneficiaryTO(beneficiary);

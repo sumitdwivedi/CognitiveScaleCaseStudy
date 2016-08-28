@@ -13,5 +13,5 @@ public interface TransactionSerivce {
 	public long createTransaction(TransactionTO customer);
     public List<TransactionTO> getAllTransactions();
     public TransactionTO getTransaction(long id);   
-    public List<TransactionTO> getAllTransaction(String transactionName);
+    public List<TransactionTO> getAllTransaction(long customerPK);
 }
