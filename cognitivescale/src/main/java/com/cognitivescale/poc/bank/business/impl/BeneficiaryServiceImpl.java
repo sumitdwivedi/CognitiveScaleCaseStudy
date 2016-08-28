@@ -41,9 +41,8 @@ public class BeneficiaryServiceImpl implements BeneficiaryService {
 	}
 
 	@Override
-	public List<BeneficiaryTO> getAllBeneficiaries(long customerID) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BeneficiaryTO> getAllBeneficiaries(long customerPK) {
+		return beneficiaryDAO.getAllBeneficiaries(customerPK);
 	}
 
 }

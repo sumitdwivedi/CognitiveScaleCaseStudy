@@ -16,5 +16,5 @@ public interface BeneficiaryDAO {
     public void deleteBeneficiary(long id);
     public List<BeneficiaryTO> getAllBeneficiaries();
     public BeneficiaryTO getBeneficiary(long id);   
-    public List<BeneficiaryTO> getAllBeneficiaries(long customerID);
+    public List<BeneficiaryTO> getAllBeneficiaries(long customerPK);
 }

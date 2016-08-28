@@ -1,5 +1,6 @@
 package com.cognitivescale.poc.bank.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,17 +27,32 @@ public class BeneficiaryController {
     public void deleteBeneficiary(long id) {
     	beneficiaryService.deleteBeneficiary(id);
 	}
-    public List<BeneficiaryDTO> getAllBeneficiaries() {
-		return null;
+    
+    public List<BeneficiaryDTO> getAllBeneficiaries(long custmerPK) {
+    	List<BeneficiaryTO> beneficiaryTOList = beneficiaryService.getAllBeneficiaries(custmerPK);
+    	List<BeneficiaryDTO> beneficiaryDTOList = new ArrayList<>();
+    	for(BeneficiaryTO beneficiaryTO : beneficiaryTOList) {
+    		BeneficiaryDTO BeneficiaryDTO = getBeneficiaryDTO(beneficiaryTO);
+    		beneficiaryDTOList.add(BeneficiaryDTO);
+    	}
+		return beneficiaryDTOList;
 	}
+    
+    /*public List<BeneficiaryDTO> getAllBeneficiaries() {
+		return null;
+	}*/
     
     public BeneficiaryDTO getBeneficiary(long id) {
     	BeneficiaryTO beneficiaryTO = beneficiaryService.getBeneficiary(id);
-    	BeneficiaryDTO BeneficiaryDTO = new BeneficiaryDTO(beneficiaryTO.getId(), beneficiaryTO.getAccountNum(), beneficiaryTO.getIfcsCode(), beneficiaryTO.getNickName(), beneficiaryTO.getCustomerID()
-    			, beneficiaryTO.getAccountName());
+    	BeneficiaryDTO BeneficiaryDTO = getBeneficiaryDTO(beneficiaryTO);
 		return BeneficiaryDTO;
 	}   
-    public List<BeneficiaryDTO> getAllBeneficiaries(long customerID) {
+    /*public List<BeneficiaryDTO> getAllBeneficiaries(long customerID) {
 		return null;
+	}*/
+	private BeneficiaryDTO getBeneficiaryDTO(BeneficiaryTO beneficiaryTO) {
+		BeneficiaryDTO BeneficiaryDTO = new BeneficiaryDTO(beneficiaryTO.getId(), beneficiaryTO.getAccountNum(), beneficiaryTO.getIfcsCode(), beneficiaryTO.getNickName(), beneficiaryTO.getCustomerID()
+    			, beneficiaryTO.getAccountName());
+		return BeneficiaryDTO;
 	}
 }

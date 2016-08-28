@@ -1,6 +1,8 @@
 package com.cognitivescale.poc.bank.data.rdb;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -39,6 +41,10 @@ public class Customer extends RDBBase{
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer",
             targetEntity = Account.class)
  private Set<Account> accounts = new HashSet<Account>(0);
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer",
+            targetEntity = Beneficiary.class)
+ private List<Beneficiary> Beneficiary = new ArrayList<Beneficiary>(0);
 	
 public Customer(){}
 	
@@ -133,5 +139,13 @@ public Customer(){}
 
 	public void setAccounts(Set<Account> accounts) {
 		this.accounts = accounts;
+	}
+
+	public List<Beneficiary> getBeneficiary() {
+		return Beneficiary;
+	}
+
+	public void setBeneficiary(List<Beneficiary> beneficiary) {
+		Beneficiary = beneficiary;
 	}
 }

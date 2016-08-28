@@ -2,6 +2,8 @@ package com.cognitivescale.poc.bank.data.rdb;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +24,10 @@ public class Beneficiary extends RDBBase {
 	String customerID;
 	@Column(name = "account_name")
 	String accountName;
+	
+	@ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
+    private Customer customer;
 
 	public Beneficiary() {
 	}
