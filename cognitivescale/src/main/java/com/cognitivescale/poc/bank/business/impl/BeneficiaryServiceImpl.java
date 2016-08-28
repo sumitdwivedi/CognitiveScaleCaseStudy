@@ -2,20 +2,30 @@ package com.cognitivescale.poc.bank.business.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.cognitivescale.poc.bank.business.BeneficiaryService;
 import com.cognitivescale.poc.bank.business.to.BeneficiaryTO;
+import com.cognitivescale.poc.bank.data.BeneficiaryDAO;
 
+@Service
+@Transactional
 public class BeneficiaryServiceImpl implements BeneficiaryService {
+	
+	@Autowired
+    private BeneficiaryDAO beneficiaryDAO;
 
 	@Override
 	public long addBeneficiary(BeneficiaryTO beneficiar) {
 		// TODO Auto-generated method stub
-		return 0;
+		return beneficiaryDAO.addBeneficiary(beneficiar);
 	}
 
 	@Override
 	public void deleteBeneficiary(long id) {
-		// TODO Auto-generated method stub
+		beneficiaryDAO.deleteBeneficiary(id);
 
 	}
 
@@ -27,8 +37,7 @@ public class BeneficiaryServiceImpl implements BeneficiaryService {
 
 	@Override
 	public BeneficiaryTO getBeneficiary(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return beneficiaryDAO.getBeneficiary(id);
 	}
 
 	@Override
