@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cognitivescale.poc.bank.business.BeneficiaryService;
 import com.cognitivescale.poc.bank.business.to.BeneficiaryTO;
@@ -15,6 +16,7 @@ import com.cognitivescale.poc.bank.web.dto.BeneficiaryDTO;
  *
  */
 @Controller
+@RequestMapping(value = "/customer/{customerID}/account/{accountID}/beneficiary")
 public class BeneficiaryController {
 	
 	@Autowired
@@ -28,8 +30,8 @@ public class BeneficiaryController {
     	beneficiaryService.deleteBeneficiary(id);
 	}
     
-    public List<BeneficiaryDTO> getAllBeneficiaries(long custmerPK) {
-    	List<BeneficiaryTO> beneficiaryTOList = beneficiaryService.getAllBeneficiaries(custmerPK);
+    public List<BeneficiaryDTO> getAllBeneficiaries(long custmerID) {
+    	List<BeneficiaryTO> beneficiaryTOList = beneficiaryService.getAllBeneficiaries(custmerID);
     	List<BeneficiaryDTO> beneficiaryDTOList = new ArrayList<>();
     	for(BeneficiaryTO beneficiaryTO : beneficiaryTOList) {
     		BeneficiaryDTO BeneficiaryDTO = getBeneficiaryDTO(beneficiaryTO);

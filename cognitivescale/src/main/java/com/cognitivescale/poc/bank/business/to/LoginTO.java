@@ -1,7 +1,5 @@
 package com.cognitivescale.poc.bank.business.to;
 
-import javax.persistence.Column;
-
 public class LoginTO {
 
 	String userName;

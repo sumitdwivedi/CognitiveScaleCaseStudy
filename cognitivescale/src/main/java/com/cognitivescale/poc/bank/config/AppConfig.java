@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.websystique.springmvc,com.cognitivescale.poc.bank.web")
+@ComponentScan(basePackages = "com.cognitivescale.poc.bank.web")
 @Import({ SecurityConfig.class })
 public class AppConfig {
 	
