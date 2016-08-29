@@ -6,10 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.cognitivescale.poc.bank.business.to.BeneficiaryTO;
 import com.cognitivescale.poc.bank.business.to.TransactionTO;
 import com.cognitivescale.poc.bank.data.TransactionDAO;
-import com.cognitivescale.poc.bank.data.rdb.Beneficiary;
 import com.cognitivescale.poc.bank.data.rdb.Customer;
 import com.cognitivescale.poc.bank.data.rdb.Transaction;
 import com.cognitivescale.poc.bank.data.util.HibernateUtil;

@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Spring4 MVC -HelloWorld</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Hello : ${name}</h1>	
+<%
+	  String redirectURL = "http://mybankingapps-sumitdwivedi.rhcloud.com/user/new";
+	    response.sendRedirect(redirectURL);
+  	%>  
+
 </body>
 </html>
