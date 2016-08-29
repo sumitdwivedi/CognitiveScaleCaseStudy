@@ -1,4 +1,4 @@
-package com.websystique.springmvc.configuration;
+package com.cognitivescale.poc.bank.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
