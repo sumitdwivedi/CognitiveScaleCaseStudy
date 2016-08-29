@@ -13,6 +13,7 @@ import com.cognitivescale.poc.bank.business.TransactionSerivce;
 import com.cognitivescale.poc.bank.business.to.AccountTO;
 import com.cognitivescale.poc.bank.business.to.BeneficiaryTO;
 import com.cognitivescale.poc.bank.business.to.TransactionTO;
+import com.cognitivescale.poc.bank.common.error.GenericException;
 import com.cognitivescale.poc.bank.data.BeneficiaryDAO;
 
 @Service
@@ -72,7 +73,7 @@ public class BeneficiaryServiceImpl implements BeneficiaryService {
 			transactionTO = new TransactionTO(""+System.currentTimeMillis(), "Debit", "OnLine Transaction", date.toString(), "", destAccountTO.getAccountNum(), amount, currentBalance, remarks, srcAccountTO.getAccountNum());
 			transactionSerivce.createTransaction(transactionTO);
 		} else {
-			
+			throw new GenericException("LOW_BALANCE", "Do not have sufficient balance to transfer");
 		}
 		return transactionTO;
 	}

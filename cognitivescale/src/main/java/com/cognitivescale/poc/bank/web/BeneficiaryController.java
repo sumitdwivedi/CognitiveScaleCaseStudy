@@ -75,11 +75,11 @@ public class BeneficiaryController {
 	    return resource;
 	}  
     
-    @RequestMapping(value = "/{beneficiaryID}/trnasferFund/{amount}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{beneficiaryID}/trnasferFund/{amount}/{remarks}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
    	@ResponseBody
     public Resource<TransactionDTO> trnasferFund(@PathVariable(value = "accountID") long accountID, @PathVariable(value = "beneficiaryID") long beneficiaryID, 
-    		@PathVariable(value = "amount") double amount) {
-    	TransactionTO transactionTO = beneficiaryService.trnasferFund(accountID, beneficiaryID, amount);
+    		@PathVariable(value = "amount") double amount, @PathVariable(value = "remarks") String remarks) {
+    	TransactionTO transactionTO = beneficiaryService.trnasferFund(accountID, beneficiaryID, amount, remarks);
     	TransactionDTO transactionDTO = TransactionDTO.getTransactionDTO(transactionTO);
 		Resource<TransactionDTO> resource = new Resource(transactionDTO);
 	    resource.add(linkTo(methodOn(TransactionController.class).getTransaction(transactionTO.getId())).withRel("customer.customerID.transaction.transactionID"));
