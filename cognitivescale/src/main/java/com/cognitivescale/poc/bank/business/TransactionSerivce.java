@@ -10,7 +10,7 @@ import com.cognitivescale.poc.bank.business.to.TransactionTO;
  */
 public interface TransactionSerivce {
 	
-	public long createTransaction(TransactionTO customer);
+	public long createTransaction(TransactionTO transactionTO);
     public List<TransactionTO> getAllTransactions();
     public TransactionTO getTransaction(long id);   
     public List<TransactionTO> getAllTransaction(long customerPK);

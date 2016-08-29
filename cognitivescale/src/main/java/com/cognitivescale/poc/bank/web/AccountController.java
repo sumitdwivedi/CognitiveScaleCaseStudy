@@ -67,13 +67,9 @@ public class AccountController {
     	accountService.deleteAccount(id);
 	}
 	
-    public List<AccountDTO> getAllAccounts() {
-		return null;
-	}
-    
     @RequestMapping(value = "/{accountID}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-    public Resource<AccountDTO> getAccount(long id) {
+    public Resource<AccountDTO> getAccount(@PathVariable(value = "accountID") long id) {
 		AccountTO account = accountService.getAccount(id);
 		AccountDTO accountDTO = createAccountDTO(account);
 		Resource<AccountDTO> resource = new Resource(accountDTO);

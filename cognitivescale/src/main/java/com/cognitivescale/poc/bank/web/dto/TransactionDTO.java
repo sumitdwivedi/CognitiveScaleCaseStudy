@@ -1,5 +1,7 @@
 package com.cognitivescale.poc.bank.web.dto;
 
+import com.cognitivescale.poc.bank.business.to.TransactionTO;
+
 public class TransactionDTO {
 
 	long id;
@@ -139,4 +141,11 @@ public class TransactionDTO {
 		public void setCustomerID(String customerID) {
 			this.customerID = customerID;
 		}
+		
+		public static TransactionDTO getTransactionDTO(TransactionTO transactionTO) {
+			TransactionDTO TransactionDTO = new TransactionDTO(transactionTO.getId(), transactionTO.getTransactionID(), transactionTO.getTransactionType(), transactionTO.getTransactionMethod(), 
+	    			transactionTO.getTransactionDate(), transactionTO.getChequeNum(), transactionTO.getAccountNum(), transactionTO.getAmount(), transactionTO.getCurrentBalance(), transactionTO.getRemarks(), 
+	    			transactionTO.getCustomerID());
+			return TransactionDTO;
+		}  
 }
