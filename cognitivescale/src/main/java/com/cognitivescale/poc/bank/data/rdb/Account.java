@@ -1,11 +1,15 @@
 package com.cognitivescale.poc.bank.data.rdb;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,7 +23,7 @@ public class Account extends RDBBase{
 	@Column(name = "account_num")
 	String accountNum;
 	@Column(name = "customer_id")
-	String customerID;
+	long customerID;
 	@Column(name = "balance")
 	double balance;
 	@Column(name = "acc_type")
@@ -31,9 +35,13 @@ public class Account extends RDBBase{
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     private Customer customer;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account",
+            targetEntity = Beneficiary.class)
+	private List<Beneficiary> beneficiaryList = new ArrayList<>(0);
+	
 	public Account(){}
 	
-	public Account(long id, String accountNum, String customerID, double balance, String accType,
+	public Account(long id, String accountNum, long customerID, double balance, String accType,
 			Date accountOpenDate) {
 		super();
 		this.id = id;
@@ -44,7 +52,7 @@ public class Account extends RDBBase{
 		this.accountOpenDate = accountOpenDate;
 	}
 	
-	public Account(String accountNum, String customerID, double balance, String accType,
+	public Account(String accountNum, long customerID, double balance, String accType,
 			Date accountOpenDate) {
 		super();
 		this.accountNum = accountNum;
@@ -60,10 +68,10 @@ public class Account extends RDBBase{
 	public void setAccountNum(String accountNum) {
 		this.accountNum = accountNum;
 	}
-	public String getCustomerID() {
+	public long getCustomerID() {
 		return customerID;
 	}
-	public void setCustomerID(String customerID) {
+	public void setCustomerID(long customerID) {
 		this.customerID = customerID;
 	}
 	public double getBalance() {
@@ -91,6 +99,14 @@ public class Account extends RDBBase{
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public List<Beneficiary> getBeneficiaryList() {
+		return beneficiaryList;
+	}
+
+	public void setBeneficiaryList(List<Beneficiary> beneficiaryList) {
+		this.beneficiaryList = beneficiaryList;
 	}
 	
 	

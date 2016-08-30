@@ -62,7 +62,7 @@ public class BeneficiaryServiceImpl implements BeneficiaryService {
 		TransactionTO transactionTO = null;
 		AccountTO srcAccountTO = accountService.getAccount(accountID);
 		BeneficiaryTO beneficiaryTO = getBeneficiary(beneficiaryID);
-		AccountTO destAccountTO = accountService.getAccount(Long.parseLong(beneficiaryTO.getAccountNum()));
+		AccountTO destAccountTO = accountService.getAccount((beneficiaryTO.getBeneficiaryAccountNumber()));
 		if(srcAccountTO.getBalance()>= amount){
 			double currentBalance = srcAccountTO.getBalance()-amount;
 			srcAccountTO.setBalance(currentBalance);

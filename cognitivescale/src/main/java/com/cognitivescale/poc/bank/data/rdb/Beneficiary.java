@@ -14,50 +14,51 @@ import javax.persistence.Table;
 @Table(name = "beneficiary")
 public class Beneficiary extends RDBBase {
 
-	@Column(name = "account_num")
-	String accountNum;
 	@Column(name = "ifcs_code")
 	String ifcsCode;
 	@Column(name = "nick_name")
 	String nickName;
 	@Column(name = "customer_ids")
-	String customerID;
+	long customerID;
 	@Column(name = "account_name")
 	String accountName;
+	@Column(name = "customer_account_num")
+	long customerAccountNum;
+	@Column(name = "beneficiary_account_number")
+	long beneficiaryAccountNumber;
 	
 	@ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     private Customer customer;
+	
+	@ManyToOne
+    @JoinColumn(name = "customer_account_num", referencedColumnName = "id")
+    private Account account;
 
 	public Beneficiary() {
 	}
-
-	public Beneficiary(long id, String accountNum, String ifcsCode, String nickName, String customerID,
-			String accountName) {
+	
+	public Beneficiary(long id, long customerAccountNum, long beneficiaryAccountNumber, String ifcsCode,
+			String nickName, long customerID, String accountName) {
 		super();
 		this.id = id;
-		this.accountNum = accountNum;
+		this.customerAccountNum = customerAccountNum;
+		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
 		this.ifcsCode = ifcsCode;
 		this.nickName = nickName;
 		this.customerID = customerID;
 		this.accountName = accountName;
 	}
-
-	public Beneficiary(String accountNum, String ifcsCode, String nickName, String customerID, String accountName) {
+	
+	public Beneficiary(long customerAccountNum, long beneficiaryAccountNumber, String ifcsCode,
+			String nickName, long customerID, String accountName) {
 		super();
-		this.accountNum = accountNum;
+		this.customerAccountNum = customerAccountNum;
+		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
 		this.ifcsCode = ifcsCode;
 		this.nickName = nickName;
 		this.customerID = customerID;
 		this.accountName = accountName;
-	}
-
-	public String getAccountNum() {
-		return accountNum;
-	}
-
-	public void setAccountNum(String accountNum) {
-		this.accountNum = accountNum;
 	}
 
 	public String getIfcsCode() {
@@ -76,11 +77,11 @@ public class Beneficiary extends RDBBase {
 		this.nickName = nickName;
 	}
 
-	public String getCustomerID() {
+	public long getCustomerID() {
 		return customerID;
 	}
 
-	public void setCustomerID(String customerID) {
+	public void setCustomerID(long customerID) {
 		this.customerID = customerID;
 	}
 
@@ -92,4 +93,37 @@ public class Beneficiary extends RDBBase {
 		this.accountName = accountName;
 	}
 
+	public long getCustomerAccountNum() {
+		return customerAccountNum;
+	}
+
+	public void setCustomerAccountNum(long customerAccountNum) {
+		this.customerAccountNum = customerAccountNum;
+	}
+
+	public long getBeneficiaryAccountNumber() {
+		return beneficiaryAccountNumber;
+	}
+
+	public void setBeneficiaryAccountNumber(long beneficiaryAccountNumber) {
+		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	
 }

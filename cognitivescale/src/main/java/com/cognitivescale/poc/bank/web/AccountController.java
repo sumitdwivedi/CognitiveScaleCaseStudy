@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cognitivescale.poc.bank.business.AccountService;
 import com.cognitivescale.poc.bank.business.to.AccountTO;
 import com.cognitivescale.poc.bank.web.dto.AccountDTO;
-import com.cognitivescale.poc.bank.web.dto.CustomerDTO;
 
 
 
@@ -35,7 +34,8 @@ public class AccountController {
 	
 	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public Resource<AccountDTO> createAccount(@RequestBody AccountDTO accountDTO) {
+	public Resource<AccountDTO> createAccount(@RequestBody AccountDTO accountDTO, @PathVariable(value = "customerID") long customerID) {
+		accountDTO.setCustomerID(customerID);
 		AccountTO accountTO = createAccountTO(accountDTO);
 		long id = accountService.createAccount(accountTO);
 		accountDTO.setId(id);
@@ -51,7 +51,8 @@ public class AccountController {
 	
 	@RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-    public Resource<AccountDTO> updateAccount(@RequestBody AccountDTO accountDTO) {
+    public Resource<AccountDTO> updateAccount(@RequestBody AccountDTO accountDTO, @PathVariable(value = "customerID") long customerID) {
+		accountDTO.setCustomerID(customerID);
     	AccountTO account = createAccountTO(accountDTO);
     	long id = accountDTO.getId();
 		account.setId(id);

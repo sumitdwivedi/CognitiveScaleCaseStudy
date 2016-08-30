@@ -17,9 +17,10 @@ public class BeneficiaryDAOImpl implements BeneficiaryDAO {
     private HibernateUtil hibernateUtil;
 
 	@Override
-	public long addBeneficiary(BeneficiaryTO beneficiar) {
-		Beneficiary Beneficiary = new Beneficiary(beneficiar.getAccountNum(), beneficiar.getIfcsCode(), beneficiar.getNickName(), beneficiar.getCustomerID(), beneficiar.getAccountName());
-		return (Long)hibernateUtil.create(Beneficiary);
+	public long addBeneficiary(BeneficiaryTO beneficiaryTO) {
+		Beneficiary beneficiary = new Beneficiary(beneficiaryTO.getCustomerAccountNum(), beneficiaryTO.getBeneficiaryAccountNumber(), beneficiaryTO.getIfcsCode(), beneficiaryTO.getNickName(), beneficiaryTO.getCustomerID(), 
+				beneficiaryTO.getAccountName());
+		return (Long)hibernateUtil.create(beneficiary);
 	}
 
 	@Override
@@ -42,7 +43,7 @@ public class BeneficiaryDAOImpl implements BeneficiaryDAO {
 	}
 
 	private BeneficiaryTO getBeneficiaryTO(Beneficiary beneficiary) {
-		BeneficiaryTO BeneficiaryTO = new BeneficiaryTO(beneficiary.getId(), beneficiary.getAccountNum(), beneficiary.getIfcsCode(), beneficiary.getNickName(), beneficiary.getCustomerID(), 
+		BeneficiaryTO BeneficiaryTO = new BeneficiaryTO(beneficiary.getId(), beneficiary.getCustomerAccountNum(), beneficiary.getBeneficiaryAccountNumber(), beneficiary.getIfcsCode(), beneficiary.getNickName(), beneficiary.getCustomerID(), 
 				beneficiary.getAccountName());
 		return BeneficiaryTO;
 	}

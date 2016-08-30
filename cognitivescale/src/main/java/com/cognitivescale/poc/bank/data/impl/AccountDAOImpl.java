@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.cognitivescale.poc.bank.business.to.AccountTO;
 import com.cognitivescale.poc.bank.data.AccountDAO;
 import com.cognitivescale.poc.bank.data.rdb.Account;
+import com.cognitivescale.poc.bank.data.rdb.Customer;
 import com.cognitivescale.poc.bank.data.util.HibernateUtil;
 
 @Repository

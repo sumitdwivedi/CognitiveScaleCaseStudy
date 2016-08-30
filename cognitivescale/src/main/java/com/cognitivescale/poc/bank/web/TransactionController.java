@@ -16,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cognitivescale.poc.bank.business.to.TransactionTO;
-import com.cognitivescale.poc.bank.web.dto.AccountDTO;
-import com.cognitivescale.poc.bank.web.dto.CustomerDTO;
-import com.cognitivescale.poc.bank.web.dto.TransactionDTO;
 import com.cognitivescale.poc.bank.business.TransactionSerivce;
+import com.cognitivescale.poc.bank.business.to.TransactionTO;
+import com.cognitivescale.poc.bank.web.dto.TransactionDTO;
 
 /**
  * @author sumdwive

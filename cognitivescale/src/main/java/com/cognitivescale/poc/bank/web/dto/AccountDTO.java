@@ -6,14 +6,14 @@ public class AccountDTO {
 
 	long id;
 	String accountNum;
-	String customerID;
+	long customerID;
 	double balance;
 	String accType;
 	Date accountOpenDate;
 	
 	public AccountDTO(){}
 	
-	public AccountDTO(long id, String accountNum, String customerID, double balance, String accType,
+	public AccountDTO(long id, String accountNum, long customerID, double balance, String accType,
 			Date accountOpenDate) {
 		super();
 		this.id = id;
@@ -24,7 +24,7 @@ public class AccountDTO {
 		this.accountOpenDate = accountOpenDate;
 	}
 	
-	public AccountDTO(String accountNum, String customerID, double balance, String accType,
+	public AccountDTO(String accountNum, long customerID, double balance, String accType,
 			Date accountOpenDate) {
 		super();
 		this.accountNum = accountNum;
@@ -50,11 +50,11 @@ public class AccountDTO {
 		this.accountNum = accountNum;
 	}
 
-	public String getCustomerID() {
+	public long getCustomerID() {
 		return customerID;
 	}
 
-	public void setCustomerID(String customerID) {
+	public void setCustomerID(long customerID) {
 		this.customerID = customerID;
 	}
 

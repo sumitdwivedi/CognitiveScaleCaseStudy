@@ -94,7 +94,8 @@ modified_timestamp TIMESTAMP
 DROP TABLE IF EXISTS `beneficiary`;
 CREATE TABLE beneficiary (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-account_num varchar(200) ,
+customer_account_num varchar(200) ,
+beneficiary_account_number varchar(200) ,
 ifcs_code varchar(200) ,
 nick_name varchar(200) ,
 customer_id varchar(200) ,

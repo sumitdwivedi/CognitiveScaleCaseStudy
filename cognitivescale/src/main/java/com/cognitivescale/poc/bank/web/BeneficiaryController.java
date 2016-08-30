@@ -35,9 +35,9 @@ public class BeneficiaryController {
 	
 	@RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public Resource<BeneficiaryDTO> addBeneficiary(@RequestBody BeneficiaryDTO beneficiaryDTO) {
-		BeneficiaryTO beneficiaryTO = new BeneficiaryTO(beneficiaryDTO.getAccountNum(), beneficiaryDTO.getIfcsCode(), beneficiaryDTO.getNickName(), beneficiaryDTO.getCustomerID(), beneficiaryDTO.getAccountName());
-		long id =  beneficiaryService.addBeneficiary(beneficiaryTO);
+	public Resource<BeneficiaryDTO> addBeneficiary(@RequestBody BeneficiaryDTO beneficiaryDTO, @PathVariable(value = "accountID") long accountID, @PathVariable(value = "customerID") long customerID) {
+		BeneficiaryTO beneficiaryTO = new BeneficiaryTO(accountID, beneficiaryDTO.getBeneficiaryAccountNumber(), beneficiaryDTO.getIfcsCode(), beneficiaryDTO.getNickName(), customerID, beneficiaryDTO.getAccountName());
+				long id =  beneficiaryService.addBeneficiary(beneficiaryTO);
 		beneficiaryDTO.setId(id);
 		Resource<BeneficiaryDTO> resource = new Resource(beneficiaryDTO);
 	    resource.add(linkTo(methodOn(BeneficiaryController.class).getBeneficiary(id)).withRel("customer.customerID.account.accountID.beneficiary.beneficiaryID"));
@@ -90,8 +90,7 @@ public class BeneficiaryController {
 		return null;
 	}*/
 	private BeneficiaryDTO getBeneficiaryDTO(BeneficiaryTO beneficiaryTO) {
-		BeneficiaryDTO BeneficiaryDTO = new BeneficiaryDTO(beneficiaryTO.getId(), beneficiaryTO.getAccountNum(), beneficiaryTO.getIfcsCode(), beneficiaryTO.getNickName(), beneficiaryTO.getCustomerID()
-    			, beneficiaryTO.getAccountName());
+		BeneficiaryDTO BeneficiaryDTO = new BeneficiaryDTO(beneficiaryTO.getId(), beneficiaryTO.getCustomerAccountNum(), beneficiaryTO.getBeneficiaryAccountNumber(), beneficiaryTO.getIfcsCode(), beneficiaryTO.getNickName(), beneficiaryTO.getCustomerID(), beneficiaryTO.getAccountName());
 		return BeneficiaryDTO;
 	}
 }

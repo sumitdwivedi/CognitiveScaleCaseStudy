@@ -3,29 +3,32 @@ package com.cognitivescale.poc.bank.business.to;
 public class BeneficiaryTO {
 
 	long id;
-	String accountNum;
+	long customerAccountNum;
+	long beneficiaryAccountNumber;
 	String ifcsCode;
 	String nickName;
-	String customerID;
+	long customerID;
 	String accountName;
 	
-	public BeneficiaryTO(){}
+public BeneficiaryTO(){}
 	
-	public BeneficiaryTO(long id, String accountNum, String ifcsCode, String nickName, String customerID,
-			String accountName) {
+	public BeneficiaryTO(long id, long customerAccountNum, long beneficiaryAccountNumber, String ifcsCode,
+			String nickName, long customerID, String accountName) {
 		super();
 		this.id = id;
-		this.accountNum = accountNum;
+		this.customerAccountNum = customerAccountNum;
+		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
 		this.ifcsCode = ifcsCode;
 		this.nickName = nickName;
 		this.customerID = customerID;
 		this.accountName = accountName;
 	}
 	
-	public BeneficiaryTO(String accountNum, String ifcsCode, String nickName, String customerID,
-			String accountName) {
+	public BeneficiaryTO(long customerAccountNum, long beneficiaryAccountNumber, String ifcsCode,
+			String nickName, long customerID, String accountName) {
 		super();
-		this.accountNum = accountNum;
+		this.customerAccountNum = customerAccountNum;
+		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
 		this.ifcsCode = ifcsCode;
 		this.nickName = nickName;
 		this.customerID = customerID;
@@ -40,12 +43,20 @@ public class BeneficiaryTO {
 		this.id = id;
 	}
 
-	public String getAccountNum() {
-		return accountNum;
+	public long getCustomerAccountNum() {
+		return customerAccountNum;
 	}
 
-	public void setAccountNum(String accountNum) {
-		this.accountNum = accountNum;
+	public void setCustomerAccountNum(long customerAccountNum) {
+		this.customerAccountNum = customerAccountNum;
+	}
+
+	public long getBeneficiaryAccountNumber() {
+		return beneficiaryAccountNumber;
+	}
+
+	public void setBeneficiaryAccountNumber(long beneficiaryAccountNumber) {
+		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
 	}
 
 	public String getIfcsCode() {
@@ -64,11 +75,11 @@ public class BeneficiaryTO {
 		this.nickName = nickName;
 	}
 
-	public String getCustomerID() {
+	public long getCustomerID() {
 		return customerID;
 	}
 
-	public void setCustomerID(String customerID) {
+	public void setCustomerID(long customerID) {
 		this.customerID = customerID;
 	}
 
@@ -79,6 +90,4 @@ public class BeneficiaryTO {
 	public void setAccountName(String accountName) {
 		this.accountName = accountName;
 	}
-	
-	
 }
